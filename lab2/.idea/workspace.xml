@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="59fcb76f-2f22-4fb2-a290-02ff006024d3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/IntList/IntListExercises.java" beforeDir="false" afterPath="$PROJECT_DIR$/IntList/IntListExercises.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/IntList/IntListExercises.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/IntList/IntListExercises.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab2setup/.idea/.gitignore" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab2setup/.idea/libraries/library_sp21.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2setup/.idea/libraries/library_sp21.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../lab2setup/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../lab2setup/.idea/misc.xml" afterDir="false" />
