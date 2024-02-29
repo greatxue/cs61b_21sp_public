@@ -1,6 +1,8 @@
 package game2048;
 
+import java.util.ArrayList;
 import java.util.Formatter;
+import java.util.List;
 import java.util.Observable;
 
 
@@ -120,14 +122,28 @@ public class Model extends Observable {
             this.board.setViewingPerspective(side);
 
         for (int i = 0; i < size; i++) { // iterates over columns
+            List<Integer> targetRows = new ArrayList<>();
             // Pre-iterates all the rows in this specific column to move all tiles into an adjacent situation.
             for (int j = size - 2; j >= 0; j--) { // the top row (size - 2) would not move
                 Tile t = this.board.tile(i, j);
                 if (t != null) {
+                    // Tracks the tiles to above row by row, and the target row will increment if it satisfies.
                     int targetRow = j;
-                    while (targetRow + 1 < size && (this.board.tile(i, targetRow + 1) == null ||
-                            this.board.tile(i, targetRow + 1).value() == t.value())) {
-                        targetRow++;
+                    while (targetRow + 1 < size) {
+                        if (targetRows.contains(targetRow + 1))
+                            break;
+                        else if (this.board.tile(i, targetRow + 1) == null) {
+                            targetRow++;
+                            changed = true;
+                        }
+                        else if (this.board.tile(i, targetRow + 1).value() == t.value()) {
+                            targetRow++;
+                            this.score += 2 * t.value();
+                            targetRows.add(targetRow);
+                            changed = true;
+                        }
+                        else
+                            break;
                     }
                     changed = this.board.move(i, targetRow, t) || changed;
                 }
@@ -137,7 +153,7 @@ public class Model extends Observable {
 
         if (side != Side.NORTH)
             this.board.setViewingPerspective(Side.NORTH);
-        changed =true;
+
         checkGameOver();
         if (changed) {
             setChanged();
